@@ -1,0 +1,7 @@
+td {
+    background-color: darkgray;
+}
+
+th[scope="col"] {
+    background-color: gray;
+}

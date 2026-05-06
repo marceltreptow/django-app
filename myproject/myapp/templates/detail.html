@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<table class="table">
+    <thead>
+        <th scope="col">name</th>
+        <th scope="col">race</th>
+        <th scope="col">age</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if dog %}
+        <tr>
+            <td scope="row">{{ dog.name }}</td>
+            <td scope="row">{{ dog.race }}</td>
+            <td scope="row">{{ dog.age }}</td>
+        </tr>
+    </tbody>
+    {% else %}
+    <p>Dog not found</p>
+    {% endif %}
+</table>
+{% endblock %}

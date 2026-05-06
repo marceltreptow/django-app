@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        <a href="{% url 'get_all_dogs' %}">Go to list</a>
+    </body>
+</html>

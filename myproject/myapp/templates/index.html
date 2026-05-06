@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="display-1">List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">name</th>
+            <th scope="col">race</th>
+            <th scope="col">age</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dog in dogs %}
+        <tr>
+            <td scope="row">{{dog.name}}</td>
+            <td scope="row">{{dog.race}}</td>
+            <td scope="row">{{dog.age}}</td>
+            <td scope="row"><a href="{% url 'get_dog_detail' dog.id %}">More</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
