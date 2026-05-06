@@ -10,3 +10,4 @@ class Dog(models.Model):
     name = models.CharField(max_length=255)
     race = models.CharField(max_length=1, choices=RACE_CHOICES, default=LAPRADUDEL_CHOICE)
     age = models.PositiveSmallIntegerField()
+    image = models.ImageField(upload_to='dog_images/', null=True)
