@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Dog
 
 # Create your views here.
@@ -17,4 +17,28 @@ def home(request):
     return render(request, 'homepage.html')
 
 def form(request):
+    if request.method == "POST":
+        name = request.POST.get("dog_name")
+        race = request.POST.get("race")
+        age = request.POST.get("age")
+        image = request.FILES.get("image")
+
+        Dog.objects.create(
+            name=name,
+            race=race,
+            age=age,
+            image=image
+        )
+
+        return redirect("home")
+    
     return render(request, 'form.html')
+
+def delete_dog(request, id):
+    dog = get_object_or_404(Dog, id=id)
+
+    if request.method == "POST":
+        dog.delete()
+    return redirect("get_all_dogs")
+
+    # return render(request, "confirm_delete.html", {"dog": dog})

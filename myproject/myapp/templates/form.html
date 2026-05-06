@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-<form>
-  <div class="mb-3 form-check">
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="mb-3">
     <label for="dog_name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="dog_name">
+    <input type="text" name="dog_name" class="form-control" id="dog_name">
   </div>
-  <div class="mb-3 form-check">
+
+  <div class="mb-3">
     <label for="race" class="form-label">Race</label>
-    <input type="text" class="form-control" id="race">
+    <input type="text" name="race" class="form-control" id="race">
   </div>
-  <div class="mb-3 form-check">
+
+  <div class="mb-3">
     <label for="age" class="form-label">Age</label>
-    <input type="number" class="form-control" id="age">
+    <input type="number" name="age" class="form-control" id="age">
   </div>
-  <div class="mb-3 form-check">
+
+  <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    <input type="text" class="form-control" id="image"> 
+    <input type="file" name="image" class="form-control" id="image">
   </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}

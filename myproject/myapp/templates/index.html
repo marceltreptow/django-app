@@ -11,6 +11,7 @@
             <th scope="col">race</th>
             <th scope="col">age</th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,12 @@
             <td scope="row">{{dog.race}}</td>
             <td scope="row">{{dog.age}}</td>
             <td scope="row"><a href="{% url 'get_dog_detail' dog.id %}">More</a></td>
+            <td scope="row">
+                <form method="POST" action="{% url 'delete_dog' dog.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <Button type="submit" class="btn btn-danger btn-sm">Delete</Button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
