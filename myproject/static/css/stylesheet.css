@@ -5,3 +5,10 @@ td {
 th[scope="col"] {
     background-color: gray;
 }
+
+#dog {
+    background-image: url("/static/images/dog_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
