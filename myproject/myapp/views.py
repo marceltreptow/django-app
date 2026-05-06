@@ -19,8 +19,8 @@ def home(request):
 def form(request):
     if request.method == "POST":
         name = request.POST.get("dog_name")
-        race = request.POST.get("race")
-        age = request.POST.get("age")
+        race = request.POST.get("dog_race")
+        age = request.POST.get("dog_age")
         image = request.FILES.get("image")
 
         Dog.objects.create(
@@ -42,3 +42,18 @@ def delete_dog(request, id):
     return redirect("get_all_dogs")
 
     # return render(request, "confirm_delete.html", {"dog": dog})
+
+def alter_dog(request, id):
+    dog = get_object_or_404(Dog, id=id)
+
+    if request.method == "POST":
+        dog.name = request.POST.get("dog_name")
+        dog.race = request.POST.get("dog_race")
+        dog.age = request.POST.get("dog_age")
+        image = request.FILES.get("image")
+        if image:
+            dog.image = image
+        dog.save()
+
+        return redirect("home")
+    return render(request, "form.html", {'dog': dog})

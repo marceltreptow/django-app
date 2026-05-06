@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-<h6 class="display-1">Dog-List</h6>
-<a href="{% url 'add_dog' %}"><button type="button" class="btn btn-primary">Add dog</button></a>
+    <h6 class="display-1">Dog-List</h6>
+    <a href="{% url 'add_dog' %}"><button type="button" class="btn btn-primary">Add dog</button></a>
 </div>
 <table class="table">
     <thead>
@@ -10,6 +10,7 @@
             <th scope="col">name</th>
             <th scope="col">race</th>
             <th scope="col">age</th>
+            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -27,6 +28,11 @@
                     <Button type="submit" class="btn btn-danger btn-sm">Delete</Button>
                 </form>
             </td>
+            <td scope="row">
+                <a href="{% url 'alter_dog' dog.id %}" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Update</button>
+                </a>
+            <td>
         </tr>
         {% endfor %}
     </tbody>
