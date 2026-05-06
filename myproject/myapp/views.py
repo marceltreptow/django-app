@@ -15,3 +15,6 @@ def dog_detail(request, id):
 
 def home(request):
     return render(request, 'homepage.html')
+
+def form(request):
+    return render(request, 'form.html')

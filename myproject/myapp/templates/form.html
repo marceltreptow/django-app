@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form>
+  <div class="mb-3 form-check">
+    <label for="dog_name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="dog_name">
+  </div>
+  <div class="mb-3 form-check">
+    <label for="race" class="form-label">Race</label>
+    <input type="text" class="form-control" id="race">
+  </div>
+  <div class="mb-3 form-check">
+    <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" id="age">
+  </div>
+  <div class="mb-3 form-check">
+    <label for="image" class="form-label">Image</label>
+    <input type="text" class="form-control" id="image"> 
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
