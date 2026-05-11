@@ -1,39 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="mb-3">
-        <label for="dog_name" class="form-label">Name</label>
-        {% if dog.name %}
-        <input type="text" name="dog_name" class="form-control" id="dog_name" value="{{ dog.name}}">
+<main>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="dog_name" class="form-label">Name</label>
+            {% if dog.name %}
+            <input type="text" name="dog_name" class="form-control" id="dog_name" value="{{ dog.name}}">
+            {% else %}
+            <input type="text" name="dog_name" class="form-control" id="dog_name">
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="dog_race" class="form-label">Race</label>
+            {% if dog.race %}
+            <input type="text" name="dog_race" class="form-control" id="dog_race" value="{{ dog.race}}>
         {% else %}
-        <input type="text" name="dog_name" class="form-control" id="dog_name">
-        {% endif %}
-    </div>
+        <input type=" text" name="dog_race" class="form-control" id="dog_race">
+            {% endif %}
+        </div>
 
-    <div class="mb-3">
-        <label for="dog_race" class="form-label">Race</label>
-        {% if dog.race %}
-        <input type="text" name="dog_race" class="form-control" id="dog_race" value="{{ dog.race}}>
+        <div class="mb-3">
+            <label for="dog_age" class="form-label">Age</label>
+            {% if dog.age %}
+            <input type="number" name="dog_age" class="form-control" id="dog_age" value="{{ dog.age}}>
         {% else %}
-        <input type="text" name="dog_race" class="form-control" id="dog_race">
-        {% endif %}
-    </div>
+        <input type=" number" name="dog_age" class="form-control" id="dog_age">
+            {% endif %}
+        </div>
 
-    <div class="mb-3">
-        <label for="dog_age" class="form-label">Age</label>
-        {% if dog.age %}
-        <input type="number" name="dog_age" class="form-control" id="dog_age" value="{{ dog.age}}>
-        {% else %}
-        <input type="number" name="dog_age" class="form-control" id="dog_age">
-        {% endif %}
-    </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" id="image">
+        </div>
 
-    <div class="mb-3">
-        <label for="image" class="form-label">Image</label>
-        <input type="file" name="image" class="form-control" id="image">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
 {% endblock %}
